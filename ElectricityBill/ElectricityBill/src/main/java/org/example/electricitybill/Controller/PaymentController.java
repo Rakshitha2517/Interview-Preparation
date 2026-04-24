@@ -12,22 +12,22 @@ public class PaymentController {
 
     @Autowired
     private PaymentService service;
-
+//view old payment details
     @GetMapping("/payment")
     public List<Payment> getPayment() {
         return service.getAllPayments();
     }
-
+//add new payment details
     @PostMapping("/payment")
     public Payment addPayment(@RequestBody Payment p) {
         return service.savePayment(p);
     }
-
+//update payment details
     @PutMapping("/payment/{id}")
     public Payment update(@PathVariable int id, @RequestBody Payment p) {
         return service.updatePayment(id, p);
     }
-
+//delete payment history
     @DeleteMapping("/payment/{id}")
     public String delete(@PathVariable int id) {
         return service.deletePayment(id);
